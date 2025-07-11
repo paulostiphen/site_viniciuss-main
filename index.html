@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FormGestor - Sistema de Registro de Aulas</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-dyslexic@0.0.1/open-dyslexic.min.css">
+
+</head>
+
+<body>
+  <canvas id="particles"></canvas>
+  <button id="acessibilidadeBtn" aria-label="Ativar acessibilidade">♿ Acessibilidade</button>
+<div id="legendaAcessibilidade" aria-live="polite"></div>
+
+<header>
+  <div class="container nav-container">
+    
+    <!-- Imagem S isolada no canto esquerdo -->
+    <div class="logo-solo">
+      <img src="logo.svg" alt="Logo S" class="logo-img-solo" />
+    </div>
+
+    <!-- Área com texto SystemIN e menu -->
+    <div class="logo-menu-area">
+      <div class="logo-area">
+        <h1 class="logo-text">SystemIN</h1>
+      </div>
+
+      <nav aria-label="Menu principal">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#funcionalidades">Funcionalidades</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="devs.html">Devs</a></li>
+          <li>
+            <button id="toggleTheme" aria-label="Alternar tema claro/escuro"> Tema</button>
+          </li>
+        </ul>
+        <button class="mobile-menu" aria-label="Abrir menu" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+
+  </div>
+</header>
+
+
+
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2><span id="typed-text"></span><span class="cursor">|</span></h2>
+        <p>Uma ferramenta criada para modernizar a rotina de representantes de turma e facilitar a gestão educacional do SENAI.</p>
+        <a href="#sobre" class="btn">Explorar Solução</a>
+      </div>
+    </section>
+
+    <section id="sobre" class="section reveal">
+      <div class="container">
+        <h2>Sobre o Projeto</h2>
+        <p>
+          O FormGestor é um sistema criado para que representantes de turma possam registrar de forma organizada e intuitiva as aulas ministradas,
+          com dados como: professor, unidade curricular, alunos presentes e horários.
+          A coordenação tem total controle para cadastrar/remover turmas, gerenciar alunos e exportar planilhas.
+        </p>
+      </div>
+    </section>
+
+    <section id="funcionalidades" class="section light reveal">
+      <div class="container">
+        <h2>Funcionalidades</h2>
+        <input type="text" id="searchInput" placeholder="Buscar funcionalidade..." class="search-bar" />
+        <div class="cards">
+          <div class="card clickable" data-url="turmas.html">📘 Cadastrar / Remover turmas</div>
+          <div class="card clickable" data-url="alunos.html">🧑‍🎓 Adicionar / Remover alunos</div>
+          <div class="card clickable" data-url="aulas.html">🗓️ Registrar aulas por data</div>
+          <div class="card clickable" data-url="planilhas.html">📎 Exportar planilhas por turma</div>
+        
+        </div>
+        <div id="explosion" class="explosion" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section id="diferenciais" class="section reveal">
+      <div class="container">
+        <h2>Diferenciais</h2>
+        <ul class="diferenciais">
+          <li>Interface clara para representantes</li>
+          <li>Painel exclusivo para coordenação</li>
+          <li>Design responsivo e acessível</li>
+          <li>Automação na geração de relatórios</li>
+          <li>Separação de planilhas por turma</li>
+          <li>Pronto para uso em sala de aula</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contato" class="section light reveal">
+      <div class="container">
+        <h2>Contato</h2>
+        <p>Entre em contato com a nossa equipe fictícia da <strong>FormGestor</strong> e leve essa solução para sua unidade SENAI.</p>
+        <p><strong>Email:</strong> <a href="mailto:suporte@formgestor.com.br">suporte@formgestor.com.br</a></p>
+        <p><strong>Telefone:</strong> <a href="tel:+551140028922">(11) 4002-8922</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2025 FormGestor. Todos os direitos reservados.</p>
+      <p id="randomQuote"></p>
+    </div>
+  </footer>
+
+
+<!-- Modal Libras -->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
+  </div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+
+  <script src="script.js"></script>
+  <script src="tema.js"></script>
+</body>
+
+</html>

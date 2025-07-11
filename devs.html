@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desenvolvedores - FormGestor</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .devs-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 1rem;
+    }
+
+    .dev-card {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      background-color: #111;
+      padding: 2rem;
+      border-radius: 20px;
+      max-width: 900px;
+      width: 100%;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .dev-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #00f0ff;
+      box-shadow: 0 0 20px #00f0ff;
+    }
+
+    .dev-info h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+      color: #00f0ff;
+    }
+
+    .dev-info p {
+      color: #ccc;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: 700px) {
+      .dev-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .dev-img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    body.dark-theme .dev-card {
+      background-color: #1a1a1a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-container">
+      <h1 class="logo">FormGestor</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="devs.html" class="active">Devs</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <button id="toggleTheme">🌙</button>
+
+  <section class="devs-section">
+    <div class="dev-card" id="devCard">
+      <img id="devImg" src="img/paulo.jpg" alt="Foto do Dev" class="dev-img" />
+      <div class="dev-info">
+        <h3 id="devName">Paulo Ricardo</h3>
+        <p id="devBio">Responsável pelo front-end do FormGestor, idealização visual, animações e efeitos dinâmicos. Atua também como maquiador e criador de conteúdos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="section light reveal">
+    <div class="container">
+      <h2>Contato</h2>
+      <p>Entre em contato com a nossa equipe fictícia da <strong>FormGestor</strong> e leve essa solução para sua unidade SENAI.</p>
+      <p><strong>Email:</strong> <a href="mailto:suporte@formgestor.com.br">suporte@formgestor.com.br</a></p>
+      <p><strong>Telefone:</strong> <a href="tel:+551140028922">(11) 4002-8922</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2025 FormGestor. Todos os direitos reservados.</p>
+      <p id="randomQuote"></p>
+    </div>
+  </footer>
+
+  <!-- Acessibilidade VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script> new window.VLibras.Widget('https://vlibras.gov.br/app'); </script>
+
+  <script src="script.js"></script>
+  <script src="tema.js"></script>
+  <script>
+    const devs = [
+      {
+        nome: "Paulo Ricardo",
+        bio: "Responsável pelo front-end do FormGestor, idealização visual, animações e efeitos dinâmicos. Atua também como maquiador e criador de conteúdos.",
+        img: "img/paulo.jpg"
+      },
+      {
+        nome: "João Martins",
+        bio: "Desenvolvedor responsável pela integração com o Google Forms, estrutura dos dados e funcionalidades administrativas do sistema.",
+        img: "img/joao.jpg"
+      },
+      {
+        nome: "Letícia Alves",
+        bio: "Cuida da identidade visual, design dos formulários e testes de usabilidade. Também contribuiu com ideias criativas para o layout.",
+        img: "img/leticia.jpg"
+      }
+    ];
+
+    let index = 0;
+    const devCard = document.getElementById("devCard");
+    const devImg = document.getElementById("devImg");
+    const devName = document.getElementById("devName");
+    const devBio = document.getElementById("devBio");
+
+    setInterval(() => {
+      index = (index + 1) % devs.length;
+      devCard.style.opacity = 0;
+
+      setTimeout(() => {
+        devImg.src = devs[index].img;
+        devName.textContent = devs[index].nome;
+        devBio.textContent = devs[index].bio;
+        devCard.style.opacity = 1;
+      }, 500);
+    }, 3000);
+  </script>
+</body>
+</html>
